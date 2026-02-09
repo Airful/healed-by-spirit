@@ -23,10 +23,10 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-24 sm:py-32 overflow-hidden">
+      <section className="relative py-20 sm:py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-purple-mist to-background" />
-        <div className="absolute inset-0 opacity-8">
-          <Image src="/images/hero-healing-hands.jpg" alt="" fill className="object-cover" />
+        <div className="absolute inset-0 opacity-[0.08]">
+          <Image src="/images/hero-healing-hands.jpg" alt="" fill className="object-cover object-center" sizes="100vw" />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <FadeIn>
@@ -44,7 +44,7 @@ export default function ServicesPage() {
       {serviceCategories.map((category) => {
         const Icon = categoryIcons[category.slug] || Sparkles;
         return (
-          <section key={category.slug} className="py-20 even:bg-card">
+          <section key={category.slug} className="py-16 sm:py-20 even:bg-card">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <FadeIn>
                 <div className="flex items-start gap-4 mb-10">
@@ -105,10 +105,10 @@ export default function ServicesPage() {
         );
       })}
 
-      <SectionDivider variant="peak" fill="var(--color-purple)" />
+      <SectionDivider variant="peak" fill="var(--color-purple-deep)" />
 
       {/* CTA */}
-      <section className="py-20 bg-[radial-gradient(ellipse_at_top,var(--color-purple-light),var(--color-purple)_50%,var(--color-purple-dark))] text-white">
+      <section className="py-16 sm:py-20 bg-ellipse-gradient text-white">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <FadeIn>
             <h2 className="text-3xl sm:text-4xl font-heading font-bold">

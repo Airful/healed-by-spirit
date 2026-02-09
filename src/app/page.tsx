@@ -85,7 +85,7 @@ export default function Home() {
       <SectionDivider variant="wave" fill="var(--color-card)" className="-mt-1" />
 
       {/* Services */}
-      <section className="py-24 bg-card">
+      <section className="pt-3 pb-16 sm:pt-4 sm:pb-20 bg-card">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="text-center mb-16">
@@ -126,10 +126,10 @@ export default function Home() {
         </div>
       </section>
 
-      <SectionDivider variant="curve" fill="var(--color-background)" />
+      <SectionDivider variant="curve" fill="var(--color-background)" className="hidden" />
 
       {/* About Brian */}
-      <section className="py-24">
+      <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScaleIn>
@@ -173,7 +173,7 @@ export default function Home() {
       </section>
 
       {/* Locations */}
-      <section className="py-24 bg-card">
+      <section className="py-16 sm:py-20 bg-card">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="text-center mb-16">
@@ -208,7 +208,7 @@ export default function Home() {
       </section>
 
       {/* Book Promo */}
-      <section className="py-24">
+      <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <FadeIn direction="right" className="order-2 lg:order-1">
@@ -239,7 +239,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-purple-mist">
+      <section className="py-16 sm:py-20 bg-purple-mist">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="text-center mb-16">
@@ -264,10 +264,10 @@ export default function Home() {
         </div>
       </section>
 
-      <SectionDivider variant="peak" fill="var(--color-purple)" />
+      <SectionDivider variant="peak" fill="var(--color-purple-deep)" />
 
       {/* CTA */}
-      <section className="py-24 bg-[radial-gradient(ellipse_at_top,var(--color-purple-light),var(--color-purple)_50%,var(--color-purple-dark))] text-white">
+      <section className="py-16 sm:py-20 bg-ellipse-gradient text-white">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <FadeIn>
             <h2 className="text-3xl sm:text-4xl font-heading font-bold">Have a Question?</h2>

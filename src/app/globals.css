@@ -12,6 +12,7 @@
   /* Brand purples — warmer, more refined */
   --color-purple: #7b5ea7;
   --color-purple-dark: #5a3d82;
+  --color-purple-deep: #674796;
   --color-purple-light: #b08dd4;
   --color-purple-mist: #f0e8f7;
 
@@ -34,6 +35,11 @@
   /* Fonts */
   --font-heading: var(--font-playfair);
   --font-body: var(--font-dm-sans);
+
+  /* Spacing scale for consistency */
+  --section-spacing-sm: 4rem;   /* py-16 */
+  --section-spacing-md: 5rem;   /* py-20 */
+  --section-spacing-lg: 6rem;   /* py-24 */
 }
 
 html {
@@ -55,6 +61,11 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   letter-spacing: -0.02em;
+}
+
+/* Purple CTA section background */
+.bg-ellipse-gradient {
+  background-color: var(--color-purple-deep);
 }
 
 /* Accessibility: respect reduced motion preference */

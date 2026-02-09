@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight, Star, Phone } from "lucide-react";
 import { testimonials } from "@/lib/data/testimonials";
 import { FadeIn, StaggerContainer, StaggerItem, ScaleIn, CountUp } from "@/components/motion";
 import { SectionDivider } from "@/components/ui/section-divider";
@@ -16,10 +16,16 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-24 sm:py-32 overflow-hidden">
+      <section className="relative py-20 sm:py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-purple-mist to-background" />
         <div className="absolute inset-0 opacity-10">
-          <Image src="/images/about-header-river-rocks.jpg" alt="" fill className="object-cover" />
+          <Image
+            src="/images/about-header-river-rocks.jpg"
+            alt=""
+            fill
+            className="object-contain object-center"
+            sizes="100vw"
+          />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <FadeIn>
@@ -31,7 +37,7 @@ export default function AboutPage() {
       </section>
 
       {/* Intro + Video */}
-      <section className="py-24">
+      <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <ScaleIn>
@@ -75,7 +81,7 @@ export default function AboutPage() {
       </section>
 
       {/* Evolution */}
-      <section className="py-24 bg-card">
+      <section className="py-16 sm:py-20 bg-card">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <h2 className="text-3xl sm:text-4xl font-heading font-bold text-foreground text-center mb-12">
@@ -104,10 +110,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <SectionDivider variant="peak" fill="var(--color-purple)" />
+      <SectionDivider variant="peak" fill="var(--color-purple-deep)" className="bg-card" />
 
       {/* Stats */}
-      <section className="py-20 bg-[radial-gradient(ellipse_at_top,var(--color-purple-light),var(--color-purple)_50%,var(--color-purple-dark))] text-white">
+      <section className="py-16 sm:py-20 bg-ellipse-gradient text-white">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
             <StaggerItem>
@@ -138,10 +144,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <SectionDivider variant="wave" fill="var(--color-background)" />
+      <SectionDivider variant="wave" fill="var(--color-background)" className="bg-purple-deep" />
 
       {/* Modality & Methodology */}
-      <section className="py-24">
+      <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <p className="text-purple font-medium tracking-wide uppercase text-sm mb-2 text-center">
@@ -182,7 +188,7 @@ export default function AboutPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-purple-mist">
+      <section className="py-16 sm:py-20 bg-purple-mist">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="text-center mb-16">
@@ -205,6 +211,37 @@ export default function AboutPage() {
               </StaggerItem>
             ))}
           </StaggerContainer>
+        </div>
+      </section>
+
+      <SectionDivider variant="peak" fill="var(--color-purple-deep)" className="bg-purple-mist" />
+
+      {/* CTA */}
+      <section className="py-16 sm:py-20 bg-ellipse-gradient text-white">
+        <div className="mx-auto max-w-4xl px-4 text-center">
+          <FadeIn>
+            <h2 className="text-3xl sm:text-4xl font-heading font-bold">
+              Have a Question?
+            </h2>
+            <p className="mt-4 text-white/80 text-lg">
+              If you need assistance, feel free to reach out. We&apos;re here to help.
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-purple font-semibold rounded-full hover:bg-white/90 active:scale-[0.98] transition-all duration-200"
+              >
+                Contact Us
+              </Link>
+              <a
+                href="tel:505-541-0265"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 active:scale-[0.98] transition-all duration-200"
+              >
+                <Phone className="mr-2 h-4 w-4" />
+                Call 505-541-0265
+              </a>
+            </div>
+          </FadeIn>
         </div>
       </section>
     </>

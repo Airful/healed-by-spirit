@@ -14,10 +14,10 @@ export default function ShopPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-24 sm:py-32 overflow-hidden">
+      <section className="relative py-20 sm:py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-purple-mist to-background" />
-        <div className="absolute inset-0 opacity-8">
-          <Image src="/images/hero-soul-spiritual.jpg" alt="" fill className="object-cover" />
+        <div className="absolute inset-0 opacity-[0.08]">
+          <Image src="/images/hero-soul-spiritual.jpg" alt="" fill className="object-cover object-center" sizes="100vw" />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <FadeIn>
@@ -51,12 +51,13 @@ export default function ShopPage() {
                   <StaggerItem key={product.slug}>
                     <div className="bg-background rounded-2xl border border-border overflow-hidden hover:border-purple/20 hover:-translate-y-1 hover:shadow-[0_8px_30px_-8px_rgba(123,94,167,0.15)] transition-all duration-300">
                       {product.image && (
-                        <div className="relative aspect-square bg-muted">
+                        <div className="relative aspect-[4/5] bg-muted flex items-center justify-center">
                           <Image
                             src={product.image}
                             alt={product.name}
                             fill
-                            className="object-cover"
+                            className="object-contain p-4"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                           />
                         </div>
                       )}

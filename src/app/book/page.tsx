@@ -15,7 +15,7 @@ export default function BookPage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-24">
+      <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Book cover */}
@@ -86,7 +86,7 @@ export default function BookPage() {
       </section>
 
       {/* About the Book */}
-      <section className="py-24 bg-card">
+      <section className="py-16 sm:py-20 bg-card">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-10">
@@ -110,7 +110,7 @@ export default function BookPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-purple-mist">
+      <section className="py-16 sm:py-20 bg-purple-mist">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <FadeIn>
             <h2 className="text-3xl font-heading font-bold text-foreground mb-10">
@@ -133,10 +133,10 @@ export default function BookPage() {
         </div>
       </section>
 
-      <SectionDivider variant="peak" fill="var(--color-purple)" />
+      <SectionDivider variant="peak" fill="var(--color-purple-deep)" />
 
       {/* CTA */}
-      <section className="py-20 bg-[radial-gradient(ellipse_at_top,var(--color-purple-light),var(--color-purple)_50%,var(--color-purple-dark))] text-white">
+      <section className="py-16 sm:py-20 bg-ellipse-gradient text-white">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <FadeIn>
             <h2 className="text-3xl font-heading font-bold">

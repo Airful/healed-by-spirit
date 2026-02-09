@@ -25,7 +25,7 @@ export function SectionDivider({
       <svg
         viewBox="0 0 1440 160"
         preserveAspectRatio="none"
-        className="w-full h-16 sm:h-20"
+        className="block w-full h-16 sm:h-20 lg:h-24"
         fill={fill}
       >
         <path d={paths[variant]} />

@@ -16,6 +16,7 @@ const navItems = [
   { label: "Services", href: "/services" },
   { label: "Book", href: "/book" },
   { label: "Shop", href: "/shop" },
+  { label: "Testimonials", href: "/testimonials" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -87,10 +88,10 @@ export function Header() {
                 </Link>
               ))}
               <Link
-                href="/shop"
+                href="/book-session"
                 className="ml-3 px-5 py-2.5 text-sm font-semibold text-white bg-green rounded-full hover:bg-green-dark active:scale-[0.98] transition-all duration-200"
               >
-                Subscribe
+                Book Session
               </Link>
             </nav>
 

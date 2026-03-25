@@ -19,11 +19,19 @@ test.describe("Header structure", () => {
     await expect(header).toBeVisible();
   });
 
-  test("header has correct nav items", async ({ page }) => {
+  test("header has correct nav items", async ({ page, isMobile }) => {
     await page.goto("/");
+
+    if (isMobile) {
+      // Open hamburger menu to reveal mobile nav
+      await page.locator('button[aria-label="Toggle menu"]').click();
+      await page.waitForTimeout(400);
+    }
+
     const navItems = ["About", "Services", "Book", "Shop", "Contact"];
     for (const item of navItems) {
-      await expect(page.locator(`nav a:has-text("${item}")`).first()).toBeVisible();
+      // Use getByRole to find the visible link (desktop nav is display:none on mobile)
+      await expect(page.getByRole("link", { name: item, exact: true }).first()).toBeVisible();
     }
   });
 });
@@ -63,17 +71,18 @@ test.describe("Section dividers", () => {
 
 test.describe("Images load correctly", () => {
   test("homepage hero image loads", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/", { waitUntil: "load" });
     const heroImages = page.locator("section").first().locator("img");
     const count = await heroImages.count();
     expect(count).toBeGreaterThanOrEqual(1);
 
-    // Check first image loaded (natural width > 0)
+    // Hero image has priority so should load quickly
     if (count > 0) {
-      const loaded = await heroImages.first().evaluate(
-        (img: HTMLImageElement) => img.complete && img.naturalWidth > 0
+      await page.waitForFunction(
+        (el) => (el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth > 0,
+        await heroImages.first().elementHandle(),
+        { timeout: 10000 }
       );
-      expect(loaded).toBe(true);
     }
   });
 
@@ -85,37 +94,45 @@ test.describe("Images load correctly", () => {
   });
 
   test("contact page headshot loads", async ({ page }) => {
-    await page.goto("/contact", { waitUntil: "domcontentloaded" });
+    await page.goto("/contact", { waitUntil: "load" });
     const headshot = page.locator('img[alt="Brian Kurtz"]');
-    await expect(headshot).toBeVisible();
-    const loaded = await headshot.evaluate(
-      (img: HTMLImageElement) => img.complete && img.naturalWidth > 0
+    await headshot.scrollIntoViewIfNeeded();
+    await expect(headshot).toBeVisible({ timeout: 10000 });
+    // Wait for lazy-loaded image to complete
+    await page.waitForFunction(
+      (el) => (el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth > 0,
+      await headshot.elementHandle(),
+      { timeout: 10000 }
     );
-    expect(loaded).toBe(true);
   });
 
   test("book cover image loads", async ({ page }) => {
-    await page.goto("/book", { waitUntil: "domcontentloaded" });
-    const cover = page.locator('img[alt*="Access the Real You"]');
-    await expect(cover).toBeVisible();
-    const loaded = await cover.evaluate(
-      (img: HTMLImageElement) => img.complete && img.naturalWidth > 0
+    await page.goto("/book", { waitUntil: "load" });
+    const cover = page.locator('img[alt*="Access the Real You"]').first();
+    await cover.scrollIntoViewIfNeeded();
+    await expect(cover).toBeVisible({ timeout: 10000 });
+    await page.waitForFunction(
+      (el) => (el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth > 0,
+      await cover.elementHandle(),
+      { timeout: 10000 }
     );
-    expect(loaded).toBe(true);
   });
 
   test("shop page product images load", async ({ page }) => {
-    await page.goto("/shop", { waitUntil: "domcontentloaded" });
+    await page.goto("/shop", { waitUntil: "load" });
     const images = page.locator("section img");
     const count = await images.count();
     expect(count).toBeGreaterThanOrEqual(1);
 
-    // Check at least the first product image loaded
+    // Scroll first product image into view and wait for lazy load
     if (count > 0) {
-      const loaded = await images.first().evaluate(
-        (img: HTMLImageElement) => img.complete && img.naturalWidth > 0
+      const firstImg = images.first();
+      await firstImg.scrollIntoViewIfNeeded();
+      await page.waitForFunction(
+        (el) => (el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth > 0,
+        await firstImg.elementHandle(),
+        { timeout: 10000 }
       );
-      expect(loaded).toBe(true);
     }
   });
 });

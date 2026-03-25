@@ -5,8 +5,14 @@ import { test, expect } from "@playwright/test";
  */
 
 test.describe("Header navigation", () => {
-  test("desktop nav links navigate correctly", async ({ page }) => {
+  test("desktop nav links navigate correctly", async ({ page, isMobile }) => {
     await page.goto("/");
+
+    if (isMobile) {
+      // Open hamburger menu to reveal nav links
+      await page.locator('button[aria-label="Toggle menu"]').click();
+      await page.waitForTimeout(400);
+    }
 
     const navLinks = [
       { text: "About", href: "/about" },
@@ -17,8 +23,8 @@ test.describe("Header navigation", () => {
     ];
 
     for (const { text, href } of navLinks) {
-      // Use desktop nav (hidden on mobile)
-      const link = page.locator(`nav a:has-text("${text}")`).first();
+      // Use getByRole to find the visible link (desktop nav is display:none on mobile)
+      const link = page.getByRole("link", { name: text, exact: true }).first();
       await expect(link).toBeVisible();
       expect(await link.getAttribute("href")).toBe(href);
     }

@@ -11,6 +11,7 @@ const serviceLinks = [
 
 const quickLinks = [
   { label: "About Brian", href: "/about" },
+  { label: "Testimonials", href: "/testimonials" },
   { label: "Shop", href: "/shop" },
   { label: "Contact", href: "/contact" },
   { label: "Terms & Conditions", href: "/terms" },

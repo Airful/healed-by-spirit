@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { serviceCategories, getServiceCategory } from "@/lib/data/services";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion";
 import { SectionDivider } from "@/components/ui/section-divider";
+import { BuyButton } from "@/components/ui/buy-button";
 
 export function generateStaticParams() {
   return serviceCategories.map((cat) => ({ slug: cat.slug }));
@@ -80,11 +81,14 @@ export default async function ServiceDetailPage({
                         </p>
                       )}
                     </div>
-                    <div className="text-right shrink-0">
+                    <div className="text-right shrink-0 flex flex-col items-end gap-3">
                       {service.price && (
                         <p className="text-2xl font-bold text-purple">
                           {service.price}
                         </p>
+                      )}
+                      {service.productSlug && (
+                        <BuyButton slug={service.productSlug} />
                       )}
                     </div>
                   </div>
@@ -105,14 +109,14 @@ export default async function ServiceDetailPage({
               Ready to Get Started?
             </h2>
             <p className="mt-4 text-white/80 text-lg">
-              Contact Brian to schedule your session or register for a workshop.
+              Book a session online or reach out to discuss the right option for you.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 bg-white text-purple font-semibold rounded-full hover:bg-white/90 active:scale-[0.98] transition-all duration-200">
-                Contact Us
+              <Link href="/book-session" className="inline-flex items-center justify-center px-8 py-4 bg-white text-purple font-semibold rounded-full hover:bg-white/90 active:scale-[0.98] transition-all duration-200">
+                Book a Session
               </Link>
-              <Link href="/shop" className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 active:scale-[0.98] transition-all duration-200">
-                Purchase in Shop
+              <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 active:scale-[0.98] transition-all duration-200">
+                Contact Us
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </div>

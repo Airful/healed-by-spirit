@@ -5,6 +5,7 @@ export interface Product {
   price: number;
   category: string;
   image?: string;
+  priceNote?: string;
   // Stripe price ID — to be filled in after Stripe setup
   stripePriceId?: string;
 }
@@ -65,8 +66,8 @@ export const products: Product[] = [
     slug: "connect-radiate-course",
     name: "Connect & Radiate Course",
     description:
-      "Five-module comprehensive curriculum for deep personal transformation.",
-    price: 125,
+      "Seven-module course opening with a Soul Connection at Will workshop. Includes six 30-minute one-on-one sessions with Brian, one between each module.",
+    price: 500,
     category: "Courses",
     image: "/images/brian-kurtz-headshot-austin.png",
   },
@@ -156,14 +157,16 @@ export const products: Product[] = [
     slug: "master-class",
     name: "Healer's Master Class — 24 Sessions",
     description: "Advanced practitioner track for committed healers.",
-    price: 2000,
+    price: 3000,
     category: "Healer's Curriculum",
   },
   {
     slug: "facilitators-curriculum",
     name: "Soul Connection Facilitator's Curriculum",
-    description: "Train to facilitate Soul Connection workshops.",
-    price: 2000,
+    description:
+      "Train to facilitate Soul Connection at Will workshops yourself. Includes 2% of all workshops delivered.",
+    price: 1000,
+    priceNote: "+ 2% of workshops",
     category: "Healer's Curriculum",
   },
 ];

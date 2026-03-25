@@ -21,7 +21,7 @@ const services = [
   },
   {
     title: "Connect & Radiate",
-    description: "A comprehensive five-module course bringing together all of Brian's transformative teachings.",
+    description: "A comprehensive seven-module course opening with a Soul Connection at Will workshop, with six one-on-one sessions with Brian.",
     icon: Zap,
     href: "/services/connect-radiate",
   },
@@ -244,23 +244,42 @@ export default function Home() {
           <FadeIn>
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-heading font-bold text-foreground">Testimonials</h2>
+              <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+                Real stories of healing and transformation from Brian&apos;s clients.
+              </p>
             </div>
           </FadeIn>
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {testimonials.map((t) => (
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {testimonials.filter(t => t.highlight).slice(0, 3).map((t) => (
               <StaggerItem key={t.name}>
-                <div className="bg-card rounded-2xl p-8 border border-border hover:-translate-y-1 hover:shadow-[0_8px_30px_-8px_rgba(123,94,167,0.15)] transition-all duration-300">
+                <div className="bg-card rounded-2xl p-8 border border-border hover:-translate-y-1 hover:shadow-[0_8px_30px_-8px_rgba(123,94,167,0.15)] transition-all duration-300 h-full flex flex-col">
                   <div className="flex gap-1 mb-4">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="h-4 w-4 fill-gold text-gold" />
                     ))}
                   </div>
-                  <p className="text-foreground italic leading-relaxed mb-6">&ldquo;{t.quote}&rdquo;</p>
-                  <p className="font-semibold text-foreground">{t.name}</p>
+                  <p className="text-foreground italic leading-relaxed mb-6 flex-1">&ldquo;{t.highlight}&rdquo;</p>
+                  <div className="mt-auto">
+                    <p className="font-semibold text-foreground">{t.name}</p>
+                    {t.context && (
+                      <p className="text-sm text-purple">{t.context}</p>
+                    )}
+                  </div>
                 </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
+          <FadeIn>
+            <div className="text-center mt-12">
+              <Link
+                href="/testimonials"
+                className="inline-flex items-center px-6 py-3 bg-purple text-white font-semibold rounded-full hover:bg-purple-dark active:scale-[0.98] transition-all duration-200"
+              >
+                Read All Testimonials
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -270,15 +289,15 @@ export default function Home() {
       <section className="py-16 sm:py-20 bg-ellipse-gradient text-white">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <FadeIn>
-            <h2 className="text-3xl sm:text-4xl font-heading font-bold">Have a Question?</h2>
-            <p className="mt-4 text-white/80 text-lg">If you need assistance, feel free to reach out. We&apos;re here to help.</p>
+            <h2 className="text-3xl sm:text-4xl font-heading font-bold">Ready to Begin?</h2>
+            <p className="mt-4 text-white/80 text-lg">Book a session online or reach out with any questions.</p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 bg-white text-purple font-semibold rounded-full hover:bg-white/90 active:scale-[0.98] transition-all duration-200">
+              <Link href="/book-session" className="inline-flex items-center justify-center px-8 py-4 bg-white text-purple font-semibold rounded-full hover:bg-white/90 active:scale-[0.98] transition-all duration-200">
+                Book a Session
+              </Link>
+              <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 active:scale-[0.98] transition-all duration-200">
                 Contact Us
               </Link>
-              <a href="tel:505-541-0265" className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 active:scale-[0.98] transition-all duration-200">
-                Call 505-541-0265
-              </a>
             </div>
           </FadeIn>
         </div>

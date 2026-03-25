@@ -37,10 +37,14 @@ test.describe("Homepage sections", () => {
   });
 
   test("locations section shows locations", async ({ page }) => {
-    const heading = page.getByText("Locations");
+    // Scroll to the "Our Locations" heading to trigger stagger animation
+    const heading = page.getByRole("heading", { name: "Our Locations" });
     await heading.scrollIntoViewIfNeeded();
+    await page.waitForTimeout(800); // Wait for stagger animation
     await expect(heading).toBeVisible({ timeout: 5000 });
-    await expect(page.getByText("Albuquerque").first()).toBeVisible();
+    // Target the location card text (inside the section, not the header top bar)
+    const locationSection = page.locator("section", { has: heading });
+    await expect(locationSection.getByText("Albuquerque")).toBeVisible({ timeout: 5000 });
   });
 
   test("book promo section is present", async ({ page }) => {
@@ -247,12 +251,16 @@ test.describe("Contact page sections", () => {
   });
 
   test("contact info section", async ({ page }) => {
-    const heading = page.getByText("Get in Touch");
+    // Target the contact info section specifically (not the header top bar)
+    const heading = page.getByRole("heading", { name: "Get in Touch" });
     await heading.scrollIntoViewIfNeeded();
+    await page.waitForTimeout(800); // Wait for stagger animation
     await expect(heading).toBeVisible({ timeout: 5000 });
-    await expect(page.getByText("505-541-0265").first()).toBeVisible();
-    await expect(page.getByText("healer@healedbyspirit.com").first()).toBeVisible();
-    await expect(page.getByText("Albuquerque").first()).toBeVisible();
+    // Use the contact section locator to avoid matching header top bar spans
+    const contactSection = page.locator("section", { has: heading });
+    await expect(contactSection.getByText("505-541-0265")).toBeVisible({ timeout: 5000 });
+    await expect(contactSection.getByText("healer@healedbyspirit.com")).toBeVisible({ timeout: 5000 });
+    await expect(contactSection.getByText("Albuquerque")).toBeVisible({ timeout: 5000 });
   });
 });
 

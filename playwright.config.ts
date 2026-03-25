@@ -1,7 +1,7 @@
 import { defineConfig } from "@playwright/test";
 
 const BASE_URL =
-  process.env.BASE_URL || "https://healed-by-spirit-e4h44qfd2-airful-labs.vercel.app";
+  process.env.BASE_URL || "https://healed-by-spirit.vercel.app";
 
 export default defineConfig({
   testDir: "./tests",
@@ -22,7 +22,7 @@ export default defineConfig({
     },
     {
       name: "mobile",
-      use: { browserName: "chromium", viewport: { width: 375, height: 812 } },
+      use: { browserName: "chromium", viewport: { width: 375, height: 812 }, isMobile: true },
     },
   ],
 });

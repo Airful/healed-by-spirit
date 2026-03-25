@@ -7,6 +7,7 @@ export interface Service {
   price?: string;
   duration?: string;
   href: string;
+  productSlug?: string; // maps to product slug for checkout
 }
 
 export interface ServiceCategory {
@@ -34,6 +35,7 @@ export const serviceCategories: ServiceCategory[] = [
         price: "$600",
         duration: "3-4 hours + 90-min follow-up",
         href: "/services/healing-sessions",
+        productSlug: "introductory-healing-package",
       },
       {
         slug: "follow-up-session",
@@ -46,6 +48,7 @@ export const serviceCategories: ServiceCategory[] = [
         price: "$125",
         duration: "90 minutes",
         href: "/services/healing-sessions",
+        productSlug: "healing-session-individual",
       },
       {
         slug: "pet-healing",
@@ -57,6 +60,7 @@ export const serviceCategories: ServiceCategory[] = [
         price: "$125",
         duration: "Varies",
         href: "/services/healing-sessions",
+        productSlug: "healing-session-pets",
       },
       {
         slug: "clearing-spaces",
@@ -69,6 +73,7 @@ export const serviceCategories: ServiceCategory[] = [
         price: "$100/hr",
         duration: "As needed",
         href: "/services/healing-sessions",
+        productSlug: "clearing-homes-workspaces",
       },
     ],
   },
@@ -89,6 +94,7 @@ export const serviceCategories: ServiceCategory[] = [
         price: "$150",
         duration: "Group session",
         href: "/services/workshops",
+        productSlug: "workshop-individual-group",
       },
       {
         slug: "workshop-couples",
@@ -100,6 +106,7 @@ export const serviceCategories: ServiceCategory[] = [
         price: "From $150",
         duration: "Group or exclusive session",
         href: "/services/workshops",
+        productSlug: "workshop-couples",
       },
       {
         slug: "workshop-families",
@@ -111,6 +118,7 @@ export const serviceCategories: ServiceCategory[] = [
         price: "From $150",
         duration: "Group session",
         href: "/services/workshops",
+        productSlug: "workshop-families-group",
       },
       {
         slug: "workshop-business",
@@ -122,6 +130,7 @@ export const serviceCategories: ServiceCategory[] = [
         price: "$150",
         duration: "Group session",
         href: "/services/workshops",
+        productSlug: "workshop-business",
       },
     ],
   },
@@ -129,19 +138,20 @@ export const serviceCategories: ServiceCategory[] = [
     slug: "connect-radiate",
     title: "Connect & Radiate Course",
     description:
-      "A comprehensive five-module course that ties together Brian's teachings — from accessing your real self to connecting with others at the deepest level.",
+      "A comprehensive seven-module course opening with a Soul Connection at Will workshop. Every student receives six 30-minute one-on-one sessions with Brian — one between each of the seven modules.",
     services: [
       {
         slug: "connect-radiate-course",
         title: "Connect & Radiate Course",
         shortDescription:
-          "Five-module comprehensive curriculum for deep personal transformation.",
+          "Seven-module course with six one-on-one sessions with Brian for deep personal transformation.",
         description:
-          "The culmination of Brian's work — a five-module course that brings together the principles from Access The Real You, Soul Connection, and healing practices into a complete transformative curriculum.",
+          "The culmination of Brian's work — a seven-module course opening with a Soul Connection at Will workshop, bringing together the principles from Access The Real You, Soul Connection, and healing practices into a complete transformative curriculum. Every student receives six 30-minute one-on-one sessions with Brian, one between each module.",
         icon: "Zap",
-        price: "$125",
-        duration: "5 modules",
+        price: "$500",
+        duration: "7 modules",
         href: "/services/connect-radiate",
+        productSlug: "connect-radiate-course",
       },
     ],
   },
@@ -162,6 +172,7 @@ export const serviceCategories: ServiceCategory[] = [
         price: "$600",
         duration: "4 modules",
         href: "/services/healers-curriculum",
+        productSlug: "level-one-healers",
       },
       {
         slug: "master-class",
@@ -171,21 +182,23 @@ export const serviceCategories: ServiceCategory[] = [
         description:
           "Advanced level class for graduates of Level One. 24 sessions of intensive practitioner development.",
         icon: "Award",
-        price: "$2,000",
+        price: "$3,000",
         duration: "24 sessions",
         href: "/services/healers-curriculum",
+        productSlug: "master-class",
       },
       {
         slug: "facilitators-curriculum",
         title: "Soul Connection Facilitator's Curriculum",
         shortDescription:
-          "Train to facilitate Soul Connection workshops yourself.",
+          "Train to facilitate Soul Connection at Will workshops yourself.",
         description:
-          "Learn to lead Soul Connection at Will workshops, extending Brian's reach and mission.",
+          "Learn to lead Soul Connection at Will workshops, extending Brian's reach and mission. Includes 2% of all workshops delivered.",
         icon: "BookOpen",
-        price: "$2,000",
+        price: "$1,000 + 2%",
         duration: "Full curriculum",
         href: "/services/healers-curriculum",
+        productSlug: "facilitators-curriculum",
       },
     ],
   },

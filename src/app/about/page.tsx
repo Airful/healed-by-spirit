@@ -103,7 +103,7 @@ export default function AboutPage() {
                 After about 500 people had done the workshop, a few folks mentioned how their brain chatter was getting in the way. Brian soon received what he now calls The Real You Principles, which became the opening presentation of the workshops, and are foundational to his book <em>Access The Real You: Touching Your Divinity and Applying Its Wisdom to Your Life</em>.
               </p>
               <p>
-                Brian is now traveling the world delivering talks centered around the book&apos;s principles, delivering workshops, and leading the five-module Connect and Radiate course — a comprehensive curriculum to teach and practice these powerful principles.
+                Brian is now traveling the world delivering talks centered around the book&apos;s principles, delivering workshops, and leading the seven-module Connect and Radiate course — a comprehensive curriculum to teach and practice these powerful principles.
               </p>
             </div>
           </FadeIn>

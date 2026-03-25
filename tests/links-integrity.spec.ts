@@ -6,7 +6,7 @@ import { test, expect } from "@playwright/test";
  */
 
 test.describe("Internal link click-through", () => {
-  test("navigate through all header links from homepage", async ({ page }) => {
+  test("navigate through all header links from homepage", async ({ page, isMobile }) => {
     await page.goto("/");
 
     const routes = [
@@ -19,7 +19,14 @@ test.describe("Internal link click-through", () => {
 
     for (const { linkText, expectedUrl } of routes) {
       await page.goto("/"); // Start from home each time
-      const link = page.locator(`nav a:has-text("${linkText}")`).first();
+
+      if (isMobile) {
+        await page.locator('button[aria-label="Toggle menu"]').click();
+        await page.waitForTimeout(400);
+      }
+
+      // Use getByRole to find the visible link (desktop nav is display:none on mobile)
+      const link = page.getByRole("link", { name: linkText, exact: true }).first();
       await link.click();
       await page.waitForURL(`**${expectedUrl}`);
       expect(page.url()).toContain(expectedUrl);

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { products, productCategories, formatPrice } from "@/lib/data/products";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion";
 import { SectionDivider } from "@/components/ui/section-divider";
+import { BuyButton } from "@/components/ui/buy-button";
 
 export const metadata: Metadata = {
   title: "Shop",
@@ -71,14 +72,11 @@ export default function ShopPage() {
                         <div className="mt-4 flex items-center justify-between">
                           <span className="text-purple font-bold text-lg">
                             {formatPrice(product.price)}
+                            {product.priceNote && (
+                              <span className="text-xs font-normal text-muted-foreground ml-1">{product.priceNote}</span>
+                            )}
                           </span>
-                          <button
-                            className="px-4 py-2 bg-green text-white text-xs font-semibold rounded-full hover:bg-green-dark active:scale-[0.98] transition-all duration-200"
-                            disabled
-                            title="Stripe checkout coming soon"
-                          >
-                            Buy Now
-                          </button>
+                          <BuyButton slug={product.slug} />
                         </div>
                       </div>
                     </div>
@@ -90,20 +88,19 @@ export default function ShopPage() {
         );
       })}
 
-      {/* Coming soon notice */}
+      {/* Contact notice */}
       <section className="py-12">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <FadeIn>
             <p className="text-muted-foreground text-sm">
-              Online checkout is being set up. In the meantime, contact Brian directly at{" "}
+              Questions about a purchase? Contact Brian at{" "}
               <a href="tel:505-541-0265" className="text-purple font-medium hover:underline">
                 505-541-0265
               </a>{" "}
               or{" "}
               <a href="mailto:healer@healedbyspirit.com" className="text-purple font-medium hover:underline">
                 healer@healedbyspirit.com
-              </a>{" "}
-              to purchase.
+              </a>
             </p>
           </FadeIn>
         </div>

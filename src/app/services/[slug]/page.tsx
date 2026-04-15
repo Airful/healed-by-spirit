@@ -83,9 +83,16 @@ export default async function ServiceDetailPage({
                     </div>
                     <div className="text-right shrink-0 flex flex-col items-end gap-3">
                       {service.price && (
-                        <p className="text-2xl font-bold text-purple">
-                          {service.price}
-                        </p>
+                        <div>
+                          <p className="text-2xl font-bold text-purple">
+                            {service.price}
+                          </p>
+                          {service.priceNote && (
+                            <p className="text-xs text-muted-foreground mt-1">
+                              {service.priceNote}
+                            </p>
+                          )}
+                        </div>
                       )}
                       {service.productSlug && (
                         <BuyButton slug={service.productSlug} />
@@ -98,6 +105,69 @@ export default async function ServiceDetailPage({
           </StaggerContainer>
         </div>
       </section>
+
+      {/* 2026 Schedule — workshops and connect-radiate only */}
+      {(slug === "workshops" || slug === "connect-radiate") && (
+        <section className="pb-24">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <FadeIn>
+              <div className="bg-purple-mist rounded-2xl p-8 sm:p-10 border border-purple/10">
+                <h2 className="text-2xl font-heading font-bold text-foreground mb-6">
+                  2026 Schedule
+                </h2>
+                {slug === "workshops" && (
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div>
+                      <h3 className="font-semibold text-purple mb-2">Family Workshops</h3>
+                      <p className="text-sm text-muted-foreground">Saturdays, 10am–noon</p>
+                      <ul className="mt-2 space-y-1 text-sm text-foreground">
+                        <li>June 6</li>
+                        <li>September 12</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-purple mb-2">Couples Workshops</h3>
+                      <p className="text-sm text-muted-foreground">Saturdays, 2–4pm</p>
+                      <ul className="mt-2 space-y-1 text-sm text-foreground">
+                        <li>April 18</li>
+                        <li>June 6</li>
+                        <li>September 5</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-purple mb-2">Individual Workshops</h3>
+                      <p className="text-sm text-muted-foreground">Saturdays, 10am–noon</p>
+                      <ul className="mt-2 space-y-1 text-sm text-foreground">
+                        <li>April 18</li>
+                        <li>September 5</li>
+                      </ul>
+                    </div>
+                  </div>
+                )}
+                {slug === "connect-radiate" && (
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-3">Thursdays, 6:30–8:30pm MST</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="bg-card rounded-xl p-4 border border-border">
+                        <p className="font-semibold text-foreground">Spring Session</p>
+                        <p className="text-sm text-muted-foreground mt-1">April 16 – May 28, 2026</p>
+                      </div>
+                      <div className="bg-card rounded-xl p-4 border border-border">
+                        <p className="font-semibold text-foreground">Fall Session</p>
+                        <p className="text-sm text-muted-foreground mt-1">September 17 – October 29, 2026</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                <p className="mt-6 text-sm text-muted-foreground">
+                  Private workshops and customized corporate programs are available by request at exclusive rates. Call Brian at{" "}
+                  <a href="tel:5055410265" className="text-purple hover:text-purple-dark font-medium">505-541-0265</a> to register.
+                </p>
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+      )}
 
       <SectionDivider variant="peak" fill="var(--color-purple)" />
 

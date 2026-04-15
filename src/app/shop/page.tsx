@@ -71,12 +71,16 @@ export default function ShopPage() {
                         </p>
                         <div className="mt-4 flex items-center justify-between">
                           <span className="text-purple font-bold text-lg">
-                            {formatPrice(product.price)}
+                            {product.price > 0 ? formatPrice(product.price) : ""}
                             {product.priceNote && (
                               <span className="text-xs font-normal text-muted-foreground ml-1">{product.priceNote}</span>
                             )}
                           </span>
-                          <BuyButton slug={product.slug} />
+                          {product.price > 0 ? (
+                            <BuyButton slug={product.slug} />
+                          ) : (
+                            <a href="tel:5055410265" className="text-xs text-purple font-medium hover:underline">Contact Us</a>
+                          )}
                         </div>
                       </div>
                     </div>

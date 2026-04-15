@@ -5,6 +5,7 @@ export interface Service {
   description: string;
   icon: string; // lucide icon name
   price?: string;
+  priceNote?: string;
   duration?: string;
   href: string;
   productSlug?: string; // maps to product slug for checkout
@@ -81,7 +82,7 @@ export const serviceCategories: ServiceCategory[] = [
     slug: "workshops",
     title: "Soul Connection at Will Workshops",
     description:
-      "Learn to connect on a soul level and access sacred space where miracles are available. Workshops for couples, families, business teams, and individuals.",
+      "Learn to connect on a soul level and access sacred space where miracles are available. Workshops for couples, families, business teams, and individuals. Available in person or remotely via Zoom.",
     services: [
       {
         slug: "workshop-individual",
@@ -89,46 +90,89 @@ export const serviceCategories: ServiceCategory[] = [
         shortDescription:
           "Access sacred space and connect at soul level with those around you.",
         description:
-          "These workshops teach how to connect on a soul level, allowing access to the sacred space where Miracles are Available®. Gain the ability to access this sacred space whenever you wish.",
+          "You'll first be led through an engaging exercise in which you will learn to distinguish between \"mind chatter\" and \"soul talk.\" From this place you will be guided through processes that will open you up to safely and lovingly connect with the person in front of you. You will learn to access this Sacred Space whenever and with whomever you wish, and will have the tools to return there whenever you choose.",
         icon: "Users",
-        price: "$150",
-        duration: "Group session",
+        price: "$50",
+        priceNote: "per person (group rate)",
+        duration: "Saturdays 10am–noon",
         href: "/services/workshops",
         productSlug: "workshop-individual-group",
+      },
+      {
+        slug: "workshop-individual-private",
+        title: "Individual Workshop — Private",
+        shortDescription:
+          "Private, in-home or Zoom workshop experience with Brian.",
+        description:
+          "A private Soul Connection at Will workshop tailored to you. Available in-home or via Zoom teleconferencing. Two-person minimum.",
+        icon: "Users",
+        price: "$200",
+        priceNote: "per person (2 person minimum)",
+        duration: "By appointment",
+        href: "/services/workshops",
       },
       {
         slug: "workshop-couples",
         title: "Soul Connection for Couples",
         shortDescription: "Deepen your relationship through soul-level connection.",
         description:
-          "Experience yourself and your partner at soul level beyond normal daily interaction. Available as group rate or exclusive session.",
+          "This beautiful process peels away the layers through which we generally communicate. Upon completion, you will find yourself in a place where the divinity in you is able to readily connect to the divinity in another, and will have the tools to return there whenever you wish with whomever you choose.",
         icon: "HeartHandshake",
-        price: "From $150",
-        duration: "Group or exclusive session",
+        price: "$100",
+        priceNote: "per couple (group rate)",
+        duration: "Saturdays 2–4pm",
         href: "/services/workshops",
         productSlug: "workshop-couples",
+      },
+      {
+        slug: "workshop-couples-private",
+        title: "Soul Connection for Couples — Private",
+        shortDescription: "Private couples session with Brian, in-home or via Zoom.",
+        description:
+          "An exclusive couples workshop in the comfort of your home or via Zoom teleconferencing.",
+        icon: "HeartHandshake",
+        price: "$300",
+        priceNote: "per couple",
+        duration: "By appointment",
+        href: "/services/workshops",
+        productSlug: "workshop-couples-exclusive",
       },
       {
         slug: "workshop-families",
         title: "Access the Real You for Families",
         shortDescription: "Family-focused workshop on authentic connection.",
         description:
-          "Help your family access deeper connection and understanding through these powerful principles.",
+          "Help your family access deeper connection and understanding through these powerful principles. Available at group rate or as a private in-home session.",
         icon: "Users",
-        price: "From $150",
-        duration: "Group session",
+        price: "$100",
+        priceNote: "per family (group rate)",
+        duration: "Saturdays 10am–noon",
         href: "/services/workshops",
         productSlug: "workshop-families-group",
+      },
+      {
+        slug: "workshop-families-private",
+        title: "Access the Real You for Families — Private",
+        shortDescription: "Private family session with Brian, in-home or via Zoom.",
+        description:
+          "A private family workshop in the comfort of your home or via Zoom teleconferencing.",
+        icon: "Users",
+        price: "$300",
+        priceNote: "per family",
+        duration: "By appointment",
+        href: "/services/workshops",
+        productSlug: "workshop-families-exclusive",
       },
       {
         slug: "workshop-business",
         title: "Soul Connection for Business",
         shortDescription: "Transform workplace relationships and team dynamics.",
         description:
-          "Enhance relationships with colleagues, improve team dynamics, and create a more connected workplace.",
+          "Enhance relationships with colleagues, improve team dynamics, and create a more connected workplace. Corporate programs are customized for your business.",
         icon: "Briefcase",
-        price: "$150",
-        duration: "Group session",
+        price: "Custom",
+        priceNote: "based on services provided",
+        duration: "Customized program",
         href: "/services/workshops",
         productSlug: "workshop-business",
       },
@@ -138,7 +182,7 @@ export const serviceCategories: ServiceCategory[] = [
     slug: "connect-radiate",
     title: "Connect & Radiate Course",
     description:
-      "A comprehensive seven-module course opening with a Soul Connection at Will workshop. Every student receives six 30-minute one-on-one sessions with Brian — one between each of the seven modules.",
+      "A seven-module course empowering you to walk through life as the powerful Soul you are. Grounded in The Real You principles, presented in hybrid format in-person and via Zoom. Includes six 1-on-1 sessions with Brian between modules.",
     services: [
       {
         slug: "connect-radiate-course",
@@ -146,10 +190,10 @@ export const serviceCategories: ServiceCategory[] = [
         shortDescription:
           "Seven-module course with six one-on-one sessions with Brian for deep personal transformation.",
         description:
-          "The culmination of Brian's work — a seven-module course opening with a Soul Connection at Will workshop, bringing together the principles from Access The Real You, Soul Connection, and healing practices into a complete transformative curriculum. Every student receives six 30-minute one-on-one sessions with Brian, one between each module.",
+          "This beautiful and challenging course will guide you through processes designed to grant you access to your essential spiritual nature. In this place you will connect to, and ground yourself in, the Power that lives in you which is always bigger than anything you may encounter, empowering you to effortlessly live your best life! Includes the Soul Connection at Will Workshop as Module One, SIX 1-on-1 sessions with Brian between modules, a copy of \"Access The Real You,\" and the extensive 60+ page course workbook. All classes are recorded.",
         icon: "Zap",
-        price: "$500",
-        duration: "7 modules",
+        price: "$600",
+        duration: "7 modules (Thursdays, 6:30–8:30pm MST)",
         href: "/services/connect-radiate",
         productSlug: "connect-radiate-course",
       },

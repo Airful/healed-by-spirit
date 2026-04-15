@@ -16,6 +16,7 @@ const navItems = [
   { label: "Services", href: "/services" },
   { label: "Book", href: "/book" },
   { label: "Shop", href: "/shop" },
+  { label: "Blog", href: "/blog" },
   { label: "Testimonials", href: "/testimonials" },
   { label: "Contact", href: "/contact" },
 ];
